@@ -56,7 +56,7 @@ Opción escogida: Opción 2 Arquitectura de tres capas (tiers) con subdivisiones
 
 * Bueno, porque permite conservar mayormente la estructura antigua. 
 
-* Bueno, porque es sencillo de comprender la estructura general. 
+* Malo, porque es difícil a nivel de programador el comprender la estructura de todo el código.
 
 * Malo, porque tanto la base de datos como la lógica del programa se encuentran centralizadas y todos los procesos pasan por los mismos lugares. 
 
