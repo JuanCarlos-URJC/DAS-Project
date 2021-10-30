@@ -1,6 +1,6 @@
 # Decisión middleware de pago. 
 
-* Estatus: Proposed. 
+* Estatus: Accepted. 
 
  
 
@@ -30,7 +30,7 @@ Deberá existir un módulo capaz de gestionar los pagos.
 
 ## Decision Outcome 
 
-Opción escogida: Opción 2 Square y Paypal, porque ofrece mayor amplitud de servicios para la compra en línea y simplifica el trabajo al contar con las diferentes opciones de implementación.  
+Opción escogida: Opción 1 Stripe y Paypal, porque cuenta con una gran adaptación para distintos sistemas además de distintas opciones de pago.
 
  
 
@@ -60,9 +60,15 @@ Opción escogida: Opción 2 Square y Paypal, porque ofrece mayor amplitud de ser
 
 * Bueno, porque Stripe incluye un ligero descuento del 0,8% en transacciones grandes (con un tope de 5$). 
 
+* Bueno, porque Stripe cuenta con una interfaz gráfica de base.
+
+* Bueno, porque Stripe utiliza APIs y SDKs para javascript, además de iOS y Android. 
+
 * Malo, porque Stripe cobra un cargo de 15$ por contracargo no decidido a su favor. 
 
 * Malo, porque Stripe no cuenta con algunos de los servicios de pago que Square ofrece. 
+
+* Malo, porque Paypal puede beneficiar a los clientes frente a devoluciones falsas.
 
  
 
@@ -87,3 +93,5 @@ Opción escogida: Opción 2 Square y Paypal, porque ofrece mayor amplitud de ser
 * Bueno, porque Square ofrece Protección contra devoluciones de hasta 250$ al mes en transacciones que califiquen.  
 
 * Malo, porque Square no cuenta con algunos de los servicios de pago que Stripe ofrece. 
+
+* Malo, porque Paypal puede beneficiar a los clientes frente a devoluciones falsas.
