@@ -1,6 +1,6 @@
 # Decisión módulo de compras carrito. 
 
-* Estatus: Proposed. 
+* Estatus: Accepted. 
 
  
 
@@ -45,6 +45,6 @@ Opción escogida: Opción 1 Patrón singleton para carrito, porque es necesario 
 
 ## Pros and Cons of the Options 
 
-### Opción 1.  
+### Opción 1. Patrón singleton para carrito.  
 
 * Bueno, porque impide que haya problemas en ejecución si existieran distintas instancias de carritos. 

@@ -1,6 +1,6 @@
 # Decisión de distribución de la arquitectura. 
 
-Estatus: Proposed. 
+Estatus: Accepted. 
 
  
 
@@ -68,7 +68,7 @@ Opción escogida: Opción 2 Arquitectura de tres capas (tiers) con subdivisiones
 
 * Bueno, porque el sistema no se encuentra centralizado en la capa de la lógica de negocio ni en la de almacenamiento. 
 
-* Bueno, menos probable que se produzcan colapsos en el intercambio de información entre servicios al no pasar todos por las mismas partes. 
+* Bueno, porque menos probable que se produzcan colapsos en el intercambio de información entre servicios al no pasar todos por las mismas partes. 
 
 * Malo, porque hay que rehacer la estructura original. 
 
