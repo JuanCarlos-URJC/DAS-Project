@@ -1,97 +1,88 @@
-# Decisión middleware de pago. 
+# Decisión middleware de pago.  
 
-* Estatus: Accepted. 
-
- 
-
-## Context and Problem Statement 
-
-Deberá existir un módulo capaz de gestionar los pagos. 
+* Estatus: Accepted.  
 
  
+## Context and Problem Statement  
 
-## Decisions Drivers 
-
-* RF-5: Módulo de pagos. 
-
-* RF-5.1: Elegir método de pago. 
-
-* RF-5.2: Conectar con el middleware de pago. 
+Deberá existir un módulo capaz de gestionar los pagos.  
 
  
+## Decisions Drivers  
 
-## Considered Options 
+* RF-5: Módulo de pagos.  
 
-* Stripe y Paypal: Entre las opciones dispuestas para el pago del pedido del usuario se encontrará PayPal y Stripe. Para que los usuarios paguen por PayPal deberán tener una cuenta asociada a esa aplicación, mientras que Stripe es una pasarela de pago que acepta pagos con tarjeta de crédito/débito en línea. 
+* RF-5.1: Elegir método de pago.  
 
-* Square y Paypal: Entre las opciones dispuestas para el pago del pedido del usuario se encontrará PayPal y Square. Para que los usuarios paguen por PayPal deberán tener una cuenta asociada a esa aplicación, mientras que Square es un procesador  de pagos de extremo a extremo o un terminar virtual que acepta pagos con tarjeta de crédito/débito en linea. 
+* RF-5.2: Conectar con el middleware de pago.  
 
- 
 
-## Decision Outcome 
+## Considered Options  
 
-Opción escogida: Opción 1 Stripe y Paypal, porque cuenta con una gran adaptación para distintos sistemas además de distintas opciones de pago.
+* Stripe y Paypal: Entre las opciones dispuestas para el pago del pedido del usuario se encontrará PayPal y Stripe. Para que los usuarios paguen por PayPal deberán tener una cuenta asociada a esa aplicación, mientras que Stripe es una pasarela de pago que acepta pagos con tarjeta de crédito/débito en línea.  
 
- 
-
-### Positive Consequences 
-
-* Los usuarios contarán con un servicio de pago que se necesita para el correcto funcionamiento de la aplicación. 
-
-* Los usuarios cuentan con distintas opciones para adaptarse a las necesidades de los mismos. 
+* Square y Paypal: Entre las opciones dispuestas para el pago del pedido del usuario se encontrará PayPal y Square. Para que los usuarios paguen por PayPal deberán tener una cuenta asociada a esa aplicación, mientras que Square es un procesador de pagos de extremo a extremo o un terminar virtual que acepta pagos con tarjeta de crédito/débito en línea.  
 
  
+## Decision Outcome  
 
-### Negative Consequences 
-
-* Los pagos pasan a través de servicios de terceros y se depende de la seguridad de los mismos para que los pagos sean seguros. 
-
- 
-
-## Pros and Cons of the Options 
-
-### Opción 1. Stripe y Paypal. 
-
-* Bueno, porque Stripe es sencillo de implementar y conectar a la aplicación. 
-
-* Bueno, porque Stripe aporta un panel de control intuitivo para monitorizar los pagos realizados en la aplicación a través de Stripe. 
-
-* Bueno, porque Stripe cuenta con los siguientes servicios de pago: tarjeta de crédito/débito/internacionales, ACG de débito directo y crédito, transferencias electrónicas y Bitcoin. 
-
-* Bueno, porque Stripe incluye un ligero descuento del 0,8% en transacciones grandes (con un tope de 5$). 
-
-* Bueno, porque Stripe cuenta con una interfaz gráfica de base.
-
-* Bueno, porque Stripe utiliza APIs y SDKs para javascript, además de iOS y Android. 
-
-* Malo, porque Stripe cobra un cargo de 15$ por contracargo no decidido a su favor. 
-
-* Malo, porque Stripe no cuenta con algunos de los servicios de pago que Square ofrece. 
-
-* Malo, porque Paypal puede beneficiar a los clientes frente a devoluciones falsas.
+Opción escogida: Opción 1 Stripe y Paypal, porque cuenta con una gran adaptación para distintos sistemas además de distintas opciones de pago. 
 
  
+### Positive Consequences  
 
-### Opción 2. Square y Paypal. 
+* Los usuarios contarán con un servicio de pago que se necesita para el correcto funcionamiento de la aplicación.  
 
-* Bueno, porque Square es utilizable en cualquier plataforma compatible. 
+* Los usuarios cuentan con distintas opciones para adaptarse a las necesidades de los mismos.  
 
-* Bueno, porque Square  permite el pago de dos maneras diferentes (lectura de tarjeta de crédito mediante un dispositivo inteligente y la introducción manual de la información de la tarjeta). 
 
-* Bueno, porque Square procesa todas principales tarjetas de crédito en línea: Visa, Mastercard, Descubre y American Express. 
+### Negative Consequences  
 
-* Bueno, porque Square acepta pagos de Apple Pay, Android Pay y eWallet. 
+* Los pagos pasan a través de servicios de terceros y se depende de la seguridad de los mismos para que los pagos sean seguros.  
 
-* Bueno, porque Square ofrece hardware de caja. 
 
-* Bueno, porque Square todo lo necesario para aceptar pagos y gestionar la aplicación se encuentra en un sistema centralizado. 
+## Pros and Cons of the Options  
+### Opción 1. Stripe y Paypal.  
 
-* Bueno, porque Square permite la implementación por código sencilla o crear la opción de pago directamente en la web de Square o utilizar un plugin para ampliar el servicio de pagos (WooCommerce). 
+* Bueno, porque Stripe es sencillo de implementar y conectar a la aplicación.  
 
-* Bueno, porque Square no cobra contracargos. 
+* Bueno, porque Stripe aporta un panel de control intuitivo para monitorizar los pagos realizados en la aplicación. 
 
-* Bueno, porque Square ofrece Protección contra devoluciones de hasta 250$ al mes en transacciones que califiquen.  
+* Bueno, porque Stripe cuenta con los siguientes servicios de pago: tarjeta de crédito/débito/internacionales, ACG de débito directo y crédito, transferencias electrónicas y Bitcoin.  
 
-* Malo, porque Square no cuenta con algunos de los servicios de pago que Stripe ofrece. 
+* Bueno, porque Stripe incluye un ligero descuento del 0,8% en transacciones grandes (con un tope de 5$).  
 
-* Malo, porque Paypal puede beneficiar a los clientes frente a devoluciones falsas.
+* Bueno, porque Stripe cuenta con una interfaz gráfica de base. 
+
+* Bueno, porque Stripe utiliza APIs y SDKs para javascript, además de iOS y Android.  
+
+* Malo, porque Stripe cobra un cargo de 15$ por contracargo no decidido a su favor.  
+
+* Malo, porque Stripe no cuenta con algunos de los servicios de pago que Square ofrece.  
+
+* Malo, porque Paypal puede beneficiar a los clientes frente a devoluciones falsas. 
+
+ 
+### Opción 2. Square y Paypal.  
+
+* Bueno, porque Square es utilizable en cualquier plataforma compatible.  
+
+* Bueno, porque Square permite el pago de dos maneras diferentes (lectura de tarjeta de crédito mediante un dispositivo inteligente y la introducción manual de la información de la tarjeta).  
+
+* Bueno, porque Square procesa todas principales tarjetas de crédito en línea: Visa, Mastercard, Descubre y American Express.  
+
+* Bueno, porque Square acepta pagos de Apple Pay, Android Pay y eWallet.  
+
+* Bueno, porque Square ofrece hardware de caja.  
+
+* Bueno, porque en Square todo lo necesario para aceptar pagos y gestionar la aplicación se encuentra en un sistema centralizado.  
+
+* Bueno, porque Square permite la implementación por código sencilla, crear la opción de pago directamente en la web de Square o utilizar un plugin para ampliar el servicio de pagos (WooCommerce).  
+
+* Bueno, porque Square no cobra contracargos.  
+
+* Bueno, porque Square ofrece Protección contra devoluciones de hasta 250$ al mes en transacciones que califiquen.   
+
+* Malo, porque Square no cuenta con algunos de los servicios de pago que Stripe ofrece.  
+
+* Malo, porque Paypal puede beneficiar a los clientes frente a devoluciones falsas. 
