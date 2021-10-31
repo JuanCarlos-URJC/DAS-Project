@@ -1,6 +1,6 @@
 # Decisión API Gateway.  
 
-* Estatus: Proposed.  
+* Estatus: Accepted.  
  
 
 ## Context and Problem Statement  
