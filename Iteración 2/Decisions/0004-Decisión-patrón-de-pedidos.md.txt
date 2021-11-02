@@ -1,0 +1,49 @@
+# Decisión patrón de pedidos.   
+
+* Estatus: Proposed.   
+
+
+## Context and Problem Statement   
+
+La aplicación necesita un sistema para la creación y modificación de pedidos en los que se marque el estado en el que está y después guardarlo en la base de datos del usuario.  
+
+
+## Decisions Drivers   
+
+* RF-2.2. Crear pedido.    
+
+* RF-2.2.1. Modificar estado de pedidos .    
+
+
+## Considered Options   
+
+* Patrón singleton y observer para pedido: Para asegurarnos de que solo existe una instancia de pedido por carrito del cliente se utilizará el patrón singleton. Por otro lado se utilizará el patrón observer para avisar al objeto de carrito de que debe vaciarse una vez se ha realizado la copia completa de los objetos del carrito a pedido. 
+
+* Patrón singleton sin observer para pedido: Para asegurarnos de que solo existe una instancia de pedido por carrito del cliente se utilizará el patrón singleton. Por otro lado el traspaso de información entre carrito y pedido se realizará de tal manera que en cuanto se copia un objeto de carrito a pedido, el primero borra el producto de su lista de productos. 
+
+
+## Decision Outcome   
+
+Opción escogida: Opción 1 Patrón singleton y observer para pedido, porque es necesario asegurar que solo existirá un pedido para cada carrito del cliente que entre en la aplicación y se necesita avisar al carrito de cuando tiene permiso para vaciar el carrito. 
+
+ 
+### Positive Consequences   
+
+* Los usuarios contarán con el servicio descrito para poder realizar sus pedidos. 
+
+
+## Pros and Cons of the Options   
+### Opción 1. Patrón singleton y observer para pedido.    
+
+* Bueno, porque impide que haya problemas en ejecución si existieran distintas instancias de pedido gracias al patrón singleton.  
+
+* Bueno, porque gracias al patrón observer se consigue una manera estructurada de eliminar la información del carrito. 
+
+* Malo, porque al recorrer dos veces la lista de productos el tiempo de ejecución para completar el proceso es mayor. 
+
+
+###Opción 2. Patrón singleton sin observer para pedido. 
+
+* Bueno, porque impide que haya problemas en ejecución si existieran distintas instancias de pedido gracias al patrón singleton.  
+
+* Bueno, porque al no contar con el patrón observer no es necesario recorrer dos veces la lista de productos de carrito, es decir, se mejora el tiempo de ejecución al recorrer la lista una sola vez.  
