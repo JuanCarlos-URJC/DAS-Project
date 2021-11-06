@@ -1,8 +1,8 @@
 # Decisión patrón de pedidos.   
 
-* Estatus: Proposed.   
+* Estatus: Accepted.   
 
-
+ 
 ## Context and Problem Statement   
 
 La aplicación necesita poder crear y modificar pedidos a partir del carrito de la compra, en los que se marque el estado en el que está (pendiente de pago, pagado, enviado o entregado), para después guardarlos en la base de datos del usuario.  
@@ -33,7 +33,6 @@ Opción escogida: Opción 2 Hacer uso de la función resetCarrito(), para asegur
 
 
 ## Pros and Cons of the Options   
-
 ### Opción 1. Patrón observer para pedido.    
 
 * Bueno, porque gracias al patrón observer se consigue una manera estructurada de eliminar la información del carrito. 
@@ -41,6 +40,6 @@ Opción escogida: Opción 2 Hacer uso de la función resetCarrito(), para asegur
 * Malo, porque complica el desarrollo de la aplicación al incluir más clases. 
 
 
-###Opción 2. Patrón singleton sin observer para pedido. 
+###Opción 2. Hacer uso de la función resetCarrito(). 
 
 * Bueno, porque al no contar con el patrón observer la implementación de la aplicación será más sencilla. 
