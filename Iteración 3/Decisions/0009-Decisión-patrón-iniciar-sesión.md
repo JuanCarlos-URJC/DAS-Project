@@ -1,8 +1,8 @@
 # Decisión patrón iniciar sesión.   
 
-* Estatus: Proposed.   
+* Estatus: Accepted.   
 
-  
+ 
 ## Context and Problem Statement   
 
 La aplicación necesita tener un servicio para que un cliente pueda iniciar su sesión y gestionar la misma. 
@@ -21,7 +21,7 @@ La aplicación necesita tener un servicio para que un cliente pueda iniciar su s
    
 ## Considered Options   
 
-*  Patrón Access Token: Se usará el patrón Access Token para autentificar la identidad del usuario, de manera que el usuario proporciona su información (Nombre y contraseña) en la opción “Iniciar sesión”, a continuación, la aplicación manda una solicitud a la base de datos para comprobar que existe un usuario con esos datos en concreto. Si no encuentra un usuario así se rechaza el inicio de sesión y se avisa al usuario. Si se encuentra un usuario que cumple esas características entonces se trae la información del usuario a la capa de lógica del programa en la clase “Perfil” (que tiene todos los atributos de la clase Usuario) junto con el Access token y se procede a iniciar la aplicación con la información de dicha clase validando la operación con el Access Token generado. 
+*  Patrón Access Token: Se usará el patrón Access Token con JSON web token para autenticar la identidad del usuario. El usuario proporcionará su información (Nombre y contraseña) en la opción “Iniciar sesión” y, a continuación, la aplicación mandará una solicitud a la base de datos para comprobar si existe un usuario con esos datos en concreto. Si no encuentra un usuario así, se rechaza el inicio de sesión y se avisa al usuario. Si se encuentra un usuario que cumple esas características, entonces se recupera la información del usuario, almacenándola en la capa de lógica del programa, dentro de la clase “Perfil”, la cual contendrá el cliente en cuestión, así como la lista de pedidos realizados, las devoluciones y sus preferencias, así como el Access Token. Una vez realizado esto, se procederá a iniciar la aplicación con la información de dicha clase, validando la operación con el Access Token generado y enviado al cliente. 
 
   
 ## Decision Outcome   
@@ -33,7 +33,7 @@ Opción escogida: Opción 1 Patrón Access Token, porque así se facilita el tra
 
 * Los usuarios contarán con el servicio de inicio de sesión. 
 
-  
+
 ## Pros and Cons of the Options   
 ### Opción 1. Patrón Access Token. 
 
@@ -43,4 +43,4 @@ Opción escogida: Opción 1 Patrón Access Token, porque así se facilita el tra
 
 * Bueno, porque validando el inicio de sesión con el Access Token se previene que se inicie sesión si la información no es correcta. 
 
-* Malo, porque podemos llegar a crear una falla en el sistema, al tener que contar con un método de seguridad el cual puede llegar a fallar. 
+* Malo, porque podemos llegar a crear un fallo en el sistema, al tener que contar con un método de seguridad que puede fallar. 

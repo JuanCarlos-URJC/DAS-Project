@@ -1,13 +1,13 @@
 # Decisión gestión de seguridad.   
 
-* Estatus: Proposed.   
+* Estatus: Accepted.   
 
-
+  
 ## Context and Problem Statement   
 
 La aplicación necesitará ser segura y por tanto se deben tener en cuenta las siguientes medidas de seguridad.  
 
-
+ 
 ## Decisions Drivers   
 
 * RF-12: Módulo de seguridad.   
@@ -20,28 +20,30 @@ La aplicación necesitará ser segura y por tanto se deben tener en cuenta las s
 
 * RF-12.2.2: Encriptar contraseñas. 
 
+* RF-12.3: Encriptar datos cliente. 
+
  
 ## Considered Options   
 
-* AESCrypt y “Salting” por delante: Las comunicaciones se encriptarán mediante el protocolo HTTPS, mientras que para aumentar la seguridad de las contraseñas se procederá a hacer “Salting” y encriptación de las mismas. Este proceso consiste en crear un salting que no es más que un string aleatorio (hash), a continuación, se concatena la contraseña del usuario por detrás del salting, después se procede a crear un hash de esa unión y finalmente se guarda en la base de datos en una columna y en otra al lado se incluye el salting directamente. AESCrypt se usará para encriptar los datos personales de los clientes, esto se consigue gracias a que AESCrypt utiliza el algoritmo de cifrado AES y los códigos de 128 y 256 bits. 
+* AESCrypt y “Salting” por delante: Las comunicaciones se encriptarán mediante el protocolo HTTPS, mientras que para aumentar la seguridad de las contraseñas se procederá a hacer “Salting” y encriptación de las mismas. Este proceso consiste en crear un salting que no es más que un string aleatorio (hash), a continuación, se concatena la contraseña del usuario por detrás del salting, después se procede a crear un hash de esa unión (se utilizará el algoritmo “argon2” para ello) y finalmente se guarda en la base de datos en una columna y en otra al lado se incluye el salting directamente. AESCrypt se usará para encriptar los datos personales de los clientes, esto se consigue gracias a que AESCrypt utiliza el algoritmo de cifrado AES y los códigos de 128 y 256 bits. 
 
 * AxCrypt y “Salting” por delante: Las comunicaciones se encriptarán mediante el protocolo HTTPS, mientras que para aumentar la seguridad de las contraseñas se procederá a hacer “Salting” y encriptación de las mismas. Este proceso consiste en crear un salting que no es más que un string aleatorio (hash), a continuación, se concatena la contraseña del usuario por detrás del salting, después se procede a crear un hash de esa unión y finalmente se guarda en la base de datos en una columna y en otra al lado se incluye el salting directamente. AxCrypt se usará para encriptar los datos personales de los clientes, esto se consigue gracias a que AxCrypt utiliza el algoritmo de cifrado AES y los códigos de 128 y 256 bits. 
 
 * BitLocker y “Salting” por delante: Las comunicaciones se encriptarán mediante el protocolo HTTPS, mientras que para aumentar la seguridad de las contraseñas se procederá a hacer “Salting” y encriptación de las mismas. Este proceso consiste en crear un salting que no es más que un string aleatorio (hash), a continuación, se concatena la contraseña del usuario por detrás del salting, después se procede a crear un hash de esa unión y finalmente se guarda en la base de datos en una columna y en otra al lado se incluye el salting directamente. BitLocker se utilizará para encriptar los datos personales de los clientes, esta herramienta aparece en las versiones de Windows 8 y 10. 
 
 * 7-Zip y “Salting” por delante: Las comunicaciones se encriptarán mediante el protocolo HTTPS, mientras que para aumentar la seguridad de las contraseñas se procederá a hacer “Salting” y encriptación de las mismas. Este proceso consiste en crear un salting que no es más que un string aleatorio (hash), a continuación, se concatena la contraseña del usuario por detrás del salting, después se procede a crear un hash de esa unión y finalmente se guarda en la base de datos en una columna y en otra al lado se incluye el salting directamente. 7-Zip se utilizará para encriptar los datos personales de los clientes, esta herramienta de código abierto permite comprimir archivos y protegerlos con claves. 
-  
 
+ 
 ## Decision Outcome   
 
 Opción escogida: Opción 1 AESCrypt  y “Salting” por delante, porque es una manera sencilla se conseguir que la aplicación tenga una seguridad decente. 
 
-
+ 
 ### Positive Consequences   
 
 * Los usuarios contarán con una aplicación en la que sus contraseñas serán seguras. 
 
-
+  
 ### Negative Consequences 
 
 * Aun usando estos métodos de seguridad la aplicación no se encuentra absolutamente protegida. 
@@ -65,7 +67,6 @@ Opción escogida: Opción 1 AESCrypt  y “Salting” por delante, porque es una
 * Malo, porque AESCrypt restringe a un lenguaje de programación. 
 
  
-
 ### Opción 2. AxCrypt y “Salting” por delante. 
 
 * Bueno, porque incluye un método sencillo para encriptar contraseñas. 
@@ -77,7 +78,6 @@ Opción escogida: Opción 1 AESCrypt  y “Salting” por delante, porque es una
 * Bueno, porque AxCrypt simplifica el proceso de encriptación al solo tener que seleccionar una opción de cifrar. 
 
  
-
 ### Opción 3. BitLocker y “Salting” por delante. 
 
 * Bueno, porque incluye un método sencillo para encriptar contraseñas. 
@@ -91,7 +91,6 @@ Opción escogida: Opción 1 AESCrypt  y “Salting” por delante, porque es una
 * Malo, porque BitLocker es usado generalmente para Windows 8 y 10. 
 
  
-
 ### Opción 4. 7-Zip y “Salting” por delante. 
 
 * Bueno, porque incluye un método sencillo para encriptar contraseñas. 
@@ -107,5 +106,12 @@ Opción escogida: Opción 1 AESCrypt  y “Salting” por delante, porque es una
 * Bueno, porque 7-Zip es gratis. 
 
 * Malo, porque 7-Zip es código abierto y por tanto lo vuelve más vulnerable como sistema de seguridad. 
+
+ 
+## Links 
+
+*  Refined by [ADR-0001] (0001- Decisión-módulo-de-compras-carrito.md) 
+
+ 
 
  
