@@ -1,6 +1,6 @@
 # Decisión middleware de mensajería. 
 
-* Estatus: Proposed. 
+* Estatus: Accepted. 
 
   
 ## Context and Problem Statement   
